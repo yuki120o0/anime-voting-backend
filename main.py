@@ -21,7 +21,7 @@ app = FastAPI(
 # 添加CORS中间件
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://127.0.0.1:5500"],  # 前端开发服务器
+    allow_origins=["*"],  # 前端开发服务器
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -41,5 +41,6 @@ async def root():
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "message": "服务运行正常"}
+
 
 
